@@ -78,7 +78,7 @@ namespace SpecificationPack
             List<Unit> units = new List<Unit>();
             DataSet dataSet = new DataSet("EXCEL");
             string connectionString;
-            connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 12.0;IMEX=1;HDR=YES'";
+            connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 12.0;HDR=YES'";
             OleDbConnection connection = new OleDbConnection(connectionString);
             connection.Open();
 
@@ -117,21 +117,21 @@ namespace SpecificationPack
             excel.SheetsInNewWorkbook = 1;
             excel.Workbooks.Add(Type.Missing);
             Excel.Worksheet sheet = (Excel.Worksheet)excel.Sheets.get_Item(1);
-            //sheet.Cells[1, 1] = "Поз";
-            //sheet.Columns[1].NumberFormat = "#";
-            //sheet.Cells[1, 2] = "Обознач.";
+            sheet.Cells[1, 1] = "№п/п";
+            sheet.Columns[1].NumberFormat = "#";
+            sheet.Cells[1, 2] = "Поз";
             sheet.Columns[2].NumberFormat = "@";
-            //sheet.Cells[1, 3] = "Артикул";
+            sheet.Cells[1, 3] = "Артикул";
             sheet.Columns[3].NumberFormat = "@";
-            //sheet.Cells[1, 4] = "Наименование";
+            sheet.Cells[1, 4] = "Наименование";
             sheet.Columns[4].NumberFormat = "@";
-            //sheet.Cells[1, 5] = "Кол.";
-            //sheet.Columns[5].NumberFormat = "#";
-            //sheet.Cells[1, 6] = "Ед. изм";
+            sheet.Cells[1, 5] = "Кол.";
+            sheet.Columns[5].NumberFormat = "#";
+            sheet.Cells[1, 6] = "Ед. изм";
             sheet.Columns[6].NumberFormat = "@";
-            //sheet.Cells[1, 7] = "Примечание";
+            sheet.Cells[1, 7] = "Производитель";
             sheet.Columns[7].NumberFormat = "@";
-            for (int i = 0; i < units.Count; i++)
+            for (int i = 1; i < units.Count; i++)
             {
                 sheet.Cells[i + 1, 1] = i+1;
                 sheet.Cells[i + 1, 2] = units[i].Pos;
