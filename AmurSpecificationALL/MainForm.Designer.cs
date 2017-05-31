@@ -149,6 +149,7 @@
             this.SpecAlexHelukabelTxt.Size = new System.Drawing.Size(27, 20);
             this.SpecAlexHelukabelTxt.TabIndex = 15;
             this.SpecAlexHelukabelTxt.Text = "3";
+            this.SpecAlexHelukabelTxt.TextChanged += new System.EventHandler(this.SpecAlexHelukabelTxt_TextChanged);
             // 
             // MainForm
             // 

@@ -23,12 +23,15 @@ namespace AmurSpecificationAll.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int helukableCoeffs {
             get {
                 return ((int)(this["helukableCoeffs"]));
+            }
+            set {
+                this["helukableCoeffs"] = value;
             }
         }
     }

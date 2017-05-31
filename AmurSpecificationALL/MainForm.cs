@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -33,6 +32,7 @@ namespace SpecificationPack
         public MainForm()
         {
             InitializeComponent();
+            SpecAlexHelukabelTxt.Text = AmurSpecificationAll.Properties.Settings.Default.helukableCoeffs.ToString();
         }
 
         private void formBtn_Click(object sender, EventArgs e)
@@ -211,6 +211,14 @@ namespace SpecificationPack
             {
                 specAlexAvrTBox.Text = ofd.FileName;
             }
+        }
+
+        private void SpecAlexHelukabelTxt_TextChanged(object sender, EventArgs e)
+        {
+            int coeffs = 0;
+            int.TryParse(SpecAlexHelukabelTxt.Text, out coeffs);
+            AmurSpecificationAll.Properties.Settings.Default.helukableCoeffs = coeffs;
+            AmurSpecificationAll.Properties.Settings.Default.Save();
         }
     }
 }
